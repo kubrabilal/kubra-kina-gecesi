@@ -10,7 +10,11 @@
   /* Fine grain for gold glitter text (SVG fractal noise) */
   --glitter-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
   /* Cool silver / white glints (dots + small star tiles) */
-  --glitter-sparkles: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg opacity='.9'%3E%3Ccircle cx='14' cy='22' r='1.35' fill='%23ffffff'/%3E%3Ccircle cx='48' cy='12' r='1' fill='%23e8f0ff'/%3E%3Ccircle cx='82' cy='38' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='28' cy='54' r='.85' fill='%23dce6ff'/%3E%3Ccircle cx='66' cy='70' r='1.1' fill='%23fffef8'/%3E%3Ccircle cx='92' cy='84' r='.75' fill='%23eef3ff'/%3E%3Ccircle cx='56' cy='44' r='.65' fill='%23ffffff'/%3E%3Ccircle cx='8' cy='76' r='.9' fill='%23e2ebff'/%3E%3Cpath fill='%23ffffff' d='M46 41h3v7h7v3h-7v7h-3v-7h-7v-3h7z' opacity='.96'/%3E%3Cpath fill='%23e8f0ff' d='M74 24h2v4h4v2h-4v4h-2v-4h-4v-2h4z' opacity='.92'/%3E%3Cpath fill='%23ffffff' d='M22 8h1.6v4h4v1.6h-4v4H22v-4h-4V12h4z' opacity='.88'/%3E%3C/g%3E%3C/svg%3E");
+  --glitter-sparkles: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg opacity='.98'%3E%3Ccircle cx='14' cy='22' r='1.35' fill='%23ffffff'/%3E%3Ccircle cx='48' cy='12' r='1' fill='%23e8f0ff'/%3E%3Ccircle cx='82' cy='38' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='28' cy='54' r='.85' fill='%23dce6ff'/%3E%3Ccircle cx='66' cy='70' r='1.1' fill='%23fffef8'/%3E%3Ccircle cx='92' cy='84' r='.75' fill='%23eef3ff'/%3E%3Ccircle cx='56' cy='44' r='.65' fill='%23ffffff'/%3E%3Ccircle cx='8' cy='76' r='.9' fill='%23e2ebff'/%3E%3Cpath fill='%23ffffff' d='M46 41h3v7h7v3h-7v7h-3v-7h-7v-3h7z' opacity='.96'/%3E%3Cpath fill='%23e8f0ff' d='M74 24h2v4h4v2h-4v4h-2v-4h-4v-2h4z' opacity='.92'/%3E%3Cpath fill='%23ffffff' d='M22 8h1.6v4h4v1.6h-4v4H22v-4h-4V12h4z' opacity='.88'/%3E%3C/g%3E%3C/svg%3E");
+  /* Wine button: a touch lighter than deep burgundy swatch */
+  --button-wine-mid: #5d3a44;
+  --button-wine-light: #6f4a56;
+  --button-wine-deep: #4a2e36;
 }
 
 *,
@@ -71,7 +75,7 @@ body {
 
   position: relative;
   top: 3vh;
-  width: min(320px, 100%);
+  width: min(380px, 100%);
   min-width: 0;
   max-width: 100%;
   min-height: 52vh;
@@ -87,10 +91,11 @@ body {
 .headline {
   margin: 0;
   padding-top: 0.25rem;
+  white-space: nowrap;
+  overflow-wrap: normal;
   max-width: 100%;
-  overflow-wrap: break-word;
   font-family: var(--font-script);
-  font-size: clamp(2.06rem, 6.42vw, 2.82rem);
+  font-size: clamp(1.05rem, 5.6vw, 2.82rem);
   font-weight: 400;
   line-height: 1.25;
   letter-spacing: 0.02em;
@@ -144,22 +149,23 @@ body {
     var(--glitter-sparkles),
     linear-gradient(
       118deg,
-      transparent 0% 34%,
-      rgba(255, 255, 255, 0.55) 47%,
-      rgba(220, 232, 255, 0.5) 49.5%,
-      rgba(255, 255, 255, 0.65) 50.5%,
-      rgba(230, 240, 255, 0.45) 52%,
-      transparent 64% 100%
+      transparent 0% 26%,
+      rgba(255, 255, 255, 0.78) 42%,
+      rgba(220, 232, 255, 0.72) 46%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(230, 240, 255, 0.76) 53%,
+      rgba(255, 255, 255, 0.55) 56%,
+      transparent 68% 100%
     ),
     var(--glitter-noise),
     repeating-linear-gradient(
       112deg,
       transparent 0 4px,
-      rgba(255, 252, 235, 0.2) 4px 5px,
+      rgba(255, 252, 235, 0.34) 4px 5px,
       transparent 5px 12px,
       rgba(212, 175, 55, 0.22) 12px 13px,
       transparent 13px 21px,
-      rgba(255, 255, 255, 0.14) 21px 22px,
+      rgba(255, 255, 255, 0.26) 21px 22px,
       transparent 22px 30px
     ),
     linear-gradient(
@@ -202,7 +208,7 @@ body {
   .headline,
   .honoree,
   .detail-line.detail-when {
-    animation: gold-glitter-shift 12s ease-in-out infinite alternate;
+    animation: gold-glitter-shift 5s ease-in-out infinite alternate;
   }
 }
 
@@ -243,18 +249,21 @@ body {
   line-height: 1.3;
   text-align: center;
   text-decoration: none;
-  color: #2a1f12;
+  color: var(--colour-gold);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 12px rgba(212, 175, 55, 0.35);
   background: linear-gradient(
     165deg,
-    #f0d78c 0%,
-    var(--colour-gold) 42%,
-    #a67c2e 100%
+    var(--button-wine-light) 0%,
+    var(--button-wine-mid) 45%,
+    var(--button-wine-deep) 100%
   );
   border-radius: 12px;
-  border: 1px solid rgba(255, 248, 220, 0.45);
+  border: 1px solid rgba(212, 175, 55, 0.38);
   box-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    0 2px 12px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
@@ -263,10 +272,10 @@ body {
 
 .maps-button:hover {
   transform: translateY(-1px);
-  filter: brightness(1.04);
+  filter: brightness(1.08);
   box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.32),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .maps-button:active {
@@ -283,7 +292,11 @@ body {
   .arch-panel {
     top: 2vh;
     min-height: 48vh;
-    width: min(300px, 100%);
+    width: min(360px, 100%);
+  }
+
+  .headline {
+    font-size: clamp(0.92rem, 4.9vw, 2.82rem);
   }
 }
 
