@@ -1,0 +1,135 @@
+/* Typography & colours — tuned to burgundy arch + gold floral accents */
+:root {
+  --font-script: "Great Vibes", cursive;
+  --font-detail: "Playfair Display", "Times New Roman", serif;
+  --colour-gold: #d4af37;
+  --colour-gold-soft: #c9a962;
+  --colour-cream: #f8f4e8;
+  --colour-cream-muted: #e8e0d4;
+  --text-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-detail);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Full-bleed background — uses public/assets/henna_background.jpeg */
+.scene {
+  min-height: 100dvh;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9e2d6;
+  background-image: url("public/assets/henna_background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*
+ * Text sits in the central burgundy arch. Values are percentages of the viewport
+ * so the block stays aligned when `background-size: cover` crops the image.
+ * Tweak --arch-top / --arch-width if your export crops differently.
+ */
+.arch-panel {
+  --arch-top: 18%;
+  --arch-width: min(42vw, 320px);
+
+  position: relative;
+  top: 3vh;
+  width: var(--arch-width);
+  max-width: 92vw;
+  min-height: 52vh;
+  padding: 0.5rem 0.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: clamp(0.75rem, 3vh, 1.75rem);
+}
+
+.headline {
+  margin: 0;
+  padding-top: 0.25rem;
+  font-family: var(--font-script);
+  font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: var(--colour-gold-soft);
+  text-shadow: var(--text-shadow-soft);
+}
+
+.honoree {
+  margin: 0;
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 12vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--colour-cream);
+  text-shadow: var(--text-shadow-soft);
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-bottom: 0.25rem;
+}
+
+.detail-line {
+  margin: 0;
+  font-family: var(--font-detail);
+  font-size: clamp(0.78rem, 2.4vw, 0.98rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--colour-cream-muted);
+  text-shadow: var(--text-shadow-soft);
+}
+
+.detail-line.venue {
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  max-width: 18em;
+  margin-inline: auto;
+}
+
+@media (orientation: portrait) and (max-width: 480px) {
+  .arch-panel {
+    --arch-width: min(78vw, 300px);
+    top: 2vh;
+    min-height: 48vh;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .arch-panel {
+    top: 0;
+    min-height: 85vh;
+    gap: 0.5rem;
+  }
+
+  .honoree {
+    font-size: clamp(2.25rem, 8vw, 3.25rem);
+  }
+}
